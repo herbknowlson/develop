@@ -7,8 +7,8 @@ class ReturnOnCapital5YearAvg
   XP = "//li/span/p" #works with analysis
   DESC_INDEX = 121
   VALUE_INDEX = 123
-  RESULTS_JSON = "return_on_capital_5_year_avg.json"
-  RESULTS_HTML = "return_on_capital_5_year_avg.html"
+  RESULTS_JSON = "./results/return_on_capital_5_year_avg.json"
+  RESULTS_HTML = "./results/return_on_capital_5_year_avg.html"
   
   HtmlParser.parseHtml(URL, XP, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML)
   

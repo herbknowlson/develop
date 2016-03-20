@@ -80,5 +80,16 @@ module HtmlParser
     File.open(aRESULTS_JSON,"w") do |f|
       f.write(tempHash.to_json)
     end
+    
+    File.open(aRESULTS_HTML,"w") do |f|
+      tr = "<table style=width:75% CLASS=boldtable><tr>"
+      f.puts tr
+      for i in 0 ... keys.size
+        td = "<td>" + keys[i] + values[i] + "</td>"
+        f.puts td 
+        tr = "</tr><tr>"
+        f.puts tr
+      end
+    end # close the file
   end
 end

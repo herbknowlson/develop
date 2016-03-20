@@ -7,8 +7,8 @@ class ReturnOnCapital
   XP = "//li/span/p" #works with analysis
   DESC_INDEX = 120
   VALUE_INDEX = 122
-  RESULTS_JSON = "return_on_capital.json"
-  RESULTS_HTML = "return_on_capital.html"
+  RESULTS_JSON = "./results/return_on_capital.json"
+  RESULTS_HTML = "./results/return_on_capital.html"
   
   HtmlParser.parseHtml(URL, XP, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML)
   
