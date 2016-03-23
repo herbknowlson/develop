@@ -27,7 +27,7 @@ module HtmlParser
         f.puts i.to_s + " - " + e.text #Alias for inner_text
         i = i + 1
       end
-    end # close the filed
+    end # close the file
   end
   
   def putsElementsText(elements)
@@ -52,17 +52,19 @@ module HtmlParser
     return html_elements
   end
 
-  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_JSON, aRESULTS_HTML)
+  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_JSON, aRESULTS_HTML, aSHOW_ALL)
 
     url = aURL
     page = Nokogiri::HTML(RestClient.get(url))
     xp = aXP
     elements = page.xpath(xp)
    
-    i = 0
-    for e in elements
-      puts i.to_s + " - " + e
-      i = i + 1
+    if aSHOW_ALL
+      i = 0
+      for e in elements
+        puts i.to_s + " - " + e
+        i = i + 1
+      end
     end
   
     keys = []
@@ -91,6 +93,14 @@ module HtmlParser
         f.puts td 
         tr = "</tr><tr>"
         f.puts tr
+      end
+    end # close the file
+    
+    i = 0
+    File.open("./results/TextFile.txt","w") do |f|
+      values.each do |e|
+        f.puts i.to_s + " - " + e
+        i = i + 1
       end
     end # close the file
     
