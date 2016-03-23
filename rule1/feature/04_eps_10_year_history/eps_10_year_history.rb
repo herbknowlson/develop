@@ -38,6 +38,6 @@ class Sales10YearHistory
   
   elements = html_elements1 + html_elements2
   HtmlParser.putsElementsText(elements)
-  HtmlParser.writeElementsToTextFile(elements, "./results/textFileName.txt" )
+  HtmlParser.writeElementsToTextFile(elements, "./results/textFile.txt" )
   
 end
