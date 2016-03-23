@@ -26,6 +26,8 @@ class Sales10YearHistory
   #start_date=21 - 2014
   #start_date=22 - 2015
   
+
+  
   aURL = "http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports"
   aXPath = "//text()[. = 'net cash from total operating activities']/parent::*/following-sibling::*"
 

@@ -21,9 +21,11 @@ module HtmlParser
   end
   
   def writeElementsToTextFile(elements, fileName)
+    i = 0
     File.open(fileName,"w") do |f|
       elements.each do |e|
-        f.puts e.text #Alias for inner_text
+        f.puts i.to_s + " - " + e.text #Alias for inner_text
+        i = i + 1
       end
     end # close the filed
   end
@@ -37,7 +39,7 @@ module HtmlParser
   def putsElements2(elements)
     i = 0
     for e in elements
-      #puts i.to_s + " - " + e
+      puts i.to_s + " - " + e
       i = i + 1
     end
   end
@@ -91,5 +93,7 @@ module HtmlParser
         f.puts tr
       end
     end # close the file
+    
+    return values
   end
 end
