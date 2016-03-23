@@ -24,7 +24,8 @@ module HtmlParser
     i = 0
     File.open(fileName,"w") do |f|
       elements.each do |e|
-        f.puts i.to_s + " - " + e.text #Alias for inner_text
+        #f.puts i.to_s + " - " + e.text #Alias for inner_text
+        f.puts e.text #Alias for inner_text
         i = i + 1
       end
     end # close the file

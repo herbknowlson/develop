@@ -9,7 +9,7 @@ class ReturnOnCapital5YearAvg
   VALUE_INDEX = 123
   RESULTS_JSON = "./results/return_on_capital_5_year_avg.json"
   RESULTS_HTML = "./results/return_on_capital_5_year_avg.html"
-  
-  HtmlParser.parseHtml(URL, XP, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML)
+  SHOW_ALL = false
+  HtmlParser.parseHtml(URL, XP, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML, SHOW_ALL)
   
 end
