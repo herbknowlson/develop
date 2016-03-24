@@ -37,10 +37,10 @@ class PE_AND_EPS
   VALUE_INDEX = 19
   RESULTS_JSON = "./results/return_on_capital.json"
   RESULTS_HTML = "./results/return_on_capital.html"
-  
-  HtmlParser.parseHtml(aURL, aXPath, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML)
+  SHOW_ALL = true
+  HtmlParser.parseHtml(aURL, aXPath, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML, SHOW_ALL)
 
   HtmlParser.putsElementsText(html_elements)
-  HtmlParser.writeElementsToTextFile(html_elements, "./results/textFileName.txt" )
+  HtmlParser.writeElementsToTextFile(html_elements, "./results/textFile.txt" )
   
 end
