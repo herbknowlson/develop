@@ -3,7 +3,10 @@ require 'rubygems'
 require 'nokogiri'
 require 'restclient'
 require_relative 'helpers'
-require_relative 'Common'
+require_relative 'common'
+require_relative 'myStocks'
+include MyStocks
+#requier 'json'
   
 module HtmlParser
   
@@ -53,8 +56,12 @@ module HtmlParser
     return html_elements
   end
 
-  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_JSON, aRESULTS_HTML, aSHOW_ALL)
-
+  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTEXT)
+    
+    aRESULTS_JSON = aRESULTS_PATH + "json"
+    aRESULTS_HTML = aRESULTS_PATH + "html"
+    aRESULTS_TEXT = aRESULTS_PATH + "txt"
+    
     url = aURL
     page = Nokogiri::HTML(RestClient.get(url))
     xp = aXP
@@ -71,12 +78,14 @@ module HtmlParser
     keys = []
     values = []
    
-    keys[0] = elements[aDESC_INDEX].text + ": "
+    #keys[0] = elements[aDESC_INDEX].text + ": "
+    keys[0] = aTEXT
     values[0] = elements[aVALUE_INDEX].text
   
     tempHash = Hash[keys.zip values]
     require 'json'
     tempHash.to_json
+    
     puts JSON.pretty_generate(tempHash)
     
   #
@@ -90,21 +99,23 @@ module HtmlParser
       tr = "<table style=width:75% CLASS=boldtable><tr>"
       f.puts tr
       for i in 0 ... keys.size
-        td = "<td>" + keys[i] + values[i] + "</td>"
+        td = "<td>" + keys[i] + " " + values[i] + "</td>"
         f.puts td 
         tr = "</tr><tr>"
         f.puts tr
       end
     end # close the file
     
-    i = 0
-    File.open("./results/TextFile.txt","w") do |f|
+    File.open(aRESULTS_TEXT,"w") do |f|
       values.each do |e|
-        f.puts i.to_s + " - " + e
-        i = i + 1
+        f.puts e
       end
     end # close the file
     
     return values
+  end
+  
+  def myStocks ()
+    return MyStocks.all()
   end
 end

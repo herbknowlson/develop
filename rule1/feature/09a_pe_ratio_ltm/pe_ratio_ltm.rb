@@ -28,20 +28,24 @@ class PE_AND_EPS
   
   aURL = "http://www.advfn.com/stock-market/NASDAQ/AAPL/financials"
   #aURL = "http://www.msn.com/en-us/money/stockdetails/fi-126.1.AAPL.NAS"
-  aXPath = "//p" 
+  #aXPath = "//p" 
   #aXPath = "//text()[. = 'P/E Ratio (EPS)']/parent::*/following-sibling::*"
+  aXPath = "//text()[. = 'PE Ratio - LTM']/parent::*/following-sibling::*"
   
   puts aURL
   puts aXPath
-  
-  DESC_INDEX = 18
-  VALUE_INDEX = 19
+  TEXT = "PE Ratio - LTM"
+  DESC_INDEX = 0
+  VALUE_INDEX = 0
   RESULTS_JSON = "./results/return_on_capital.json"
   RESULTS_HTML = "./results/return_on_capital.html"
   SHOW_ALL = true
-  HtmlParser.parseHtml(aURL, aXPath, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML, SHOW_ALL)
+  
+  HtmlParser.jsonExample()
+  
+  #html_elements = HtmlParser.parseHtml(aURL, aXPath, DESC_INDEX, VALUE_INDEX, RESULTS_JSON, RESULTS_HTML, SHOW_ALL, TEXT)
 
-  HtmlParser.putsElementsText(html_elements)
-  HtmlParser.writeElementsToTextFile(html_elements, "./results/textFile.txt" )
+  #HtmlParser.putsElementsText(html_elements)
+  #HtmlParser.writeElementsToTextFile(html_elements, "./results/textFile.txt" )
   
 end
