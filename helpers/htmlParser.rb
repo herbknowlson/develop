@@ -6,47 +6,8 @@ require_relative 'helpers'
 require_relative 'common'
 require_relative 'myStocks'
 include MyStocks
-#requier 'json'
-  
+
 module HtmlParser
-  
-  def writeElementsToHtmlFile(elements, fileName)
-    File.open(fileName,"w") do |f|
-      tr = "<table style=width:75% CLASS=boldtable><tr>"
-      f.puts tr
-      for i in 0 ... keys.size
-        td = "<td>" + keys[i] + values[i] + "</td>"
-        f.puts td 
-        tr = "</tr><tr>"
-        f.puts tr
-      end
-    end # close the file
-  end
-  
-  def writeElementsToTextFile(elements, fileName)
-    i = 0
-    File.open(fileName,"w") do |f|
-      elements.each do |e|
-        #f.puts i.to_s + " - " + e.text #Alias for inner_text
-        f.puts e.text #Alias for inner_text
-        i = i + 1
-      end
-    end # close the file
-  end
-  
-  def putsElementsText(elements)
-    elements.each do |e|
-      puts e.text #Alias for inner_text
-    end
-  end
-  
-  def putsElements2(elements)
-    i = 0
-    for e in elements
-      puts i.to_s + " - " + e
-      i = i + 1
-    end
-  end
   
   def parseElements(aURL, aXP)
     url = aURL
@@ -56,30 +17,35 @@ module HtmlParser
     return html_elements
   end
 
-  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTEXT)
+  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTitle)
+  
+    elements = self.parseElements(aURL, aXP)
+    tempHash = createJson(aVALUE_INDEX, aTitle, elements)
     
+    if aSHOW_ALL
+      self.showResultsOnTheScreen(elements, aTitle)
+    end
+    
+    keys = []
+    values = []
+    keys[0] = aTitle
+    values[0] = elements[aVALUE_INDEX].text
+ 
     aRESULTS_JSON = aRESULTS_PATH + "json"
     aRESULTS_HTML = aRESULTS_PATH + "html"
     aRESULTS_TEXT = aRESULTS_PATH + "txt"
-    
-    url = aURL
-    page = Nokogiri::HTML(RestClient.get(url))
-    xp = aXP
-    elements = page.xpath(xp)
-   
-    if aSHOW_ALL
-      i = 0
-      for e in elements
-        puts i.to_s + " - " + e
-        i = i + 1
-      end
-    end
+    writeResultsToHtmlFile(aRESULTS_HTML, keys, values)
+    writeResultsToTextFile(aRESULTS_TEXT, values, aTitle)
+    writeResultsToJson(tempHash, aRESULTS_JSON)
+
+    return values
+  end
   
+  def createJson(aVALUE_INDEX, aTitle, elements)
     keys = []
     values = []
    
-    #keys[0] = elements[aDESC_INDEX].text + ": "
-    keys[0] = aTEXT
+    keys[0] = aTitle
     values[0] = elements[aVALUE_INDEX].text
   
     tempHash = Hash[keys.zip values]
@@ -87,14 +53,16 @@ module HtmlParser
     tempHash.to_json
     
     puts JSON.pretty_generate(tempHash)
-    
-  #
-  # Write to a file
-  #
+    return tempHash
+  end
+  
+  def writeResultsToJson(tempHash, aRESULTS_JSON)
     File.open(aRESULTS_JSON,"w") do |f|
       f.write(tempHash.to_json)
     end
-    
+  end
+  
+  def writeResultsToHtmlFile (aRESULTS_HTML, keys, values)
     File.open(aRESULTS_HTML,"w") do |f|
       tr = "<table style=width:75% CLASS=boldtable><tr>"
       f.puts tr
@@ -105,17 +73,55 @@ module HtmlParser
         f.puts tr
       end
     end # close the file
-    
-    File.open(aRESULTS_TEXT,"w") do |f|
-      values.each do |e|
-        f.puts e
-      end
-    end # close the file
-    
-    return values
   end
   
   def myStocks ()
     return MyStocks.all()
   end
+  
+  def showResultsOnTheScreen(elements, aTEXT)
+    puts aTEXT
+    i = 0
+    for e in elements
+      puts i.to_s + " - " + e
+      i = i + 1
+    end
+  end
+  
+  def putsElementsText(elements, aTEXT)
+    puts aTEXT
+    elements.each do |e|
+      puts e.text #Alias for inner_text
+    end
+  end
+  
+  def writeResultsToTextFile(aRESULTS_TEXT, values, aTEXT)
+    File.open(aRESULTS_TEXT,"w") do |f|
+      f.puts aTEXT
+      values.each do |e|
+        f.puts e
+      end
+    end # close the file
+  end
+  
+  def writeElementsToTextFile(elements, fileName, aTEXT)
+    i = 0
+    File.open(fileName,"w") do |f|
+      f.puts aTEXT
+      elements.each do |e|
+        #f.puts i.to_s + " - " + e.text #Alias for inner_text
+        f.puts e.text #Alias for inner_text
+        i = i + 1
+      end
+    end # close the file
+  end
+
+  def putsElements2(elements)
+    i = 0
+    for e in elements
+      puts i.to_s + " - " + e
+      i = i + 1
+    end
+  end
+  
 end

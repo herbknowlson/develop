@@ -31,6 +31,14 @@ module MyStocks
           "xpath":"//li/span/p",
           "aDESC_INDEX":121,
           "aVALUE_INDEX":123
+        },
+        "feature 03":{
+          "desc":"sales_10_year_history",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports",
+          "url2":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports",
+          "xpath":"//text()[. = \'operating revenue\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":1
         }
       },
       

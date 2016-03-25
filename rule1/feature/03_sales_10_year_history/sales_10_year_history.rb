@@ -1,7 +1,7 @@
 require_relative '../../../helpers/htmlParser'
 include HtmlParser
   
-class Sales10YearHistory
+class Sales_10_year_history
   #start_date=0 - 1993
   #start_date=1 - 1994
   #start_date=2 - 1995
@@ -26,30 +26,26 @@ class Sales10YearHistory
   #start_date=21 - 2014
   #start_date=22 - 2015
   
-  aURL = "http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports"
-  aXP = "//text()[. = 'operating revenue']/parent::*/following-sibling::*"
-  aDESC_INDEX = 0
-  aVALUE_INDEX = 1
-
-  aRESULTS_JSON = "sales_1st_5_year_history.json"
-  aRESULTS_HTML = "sales_1st_5_year_history.html"
-  
-  #HtmlParser.parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_JSON, aRESULTS_HTML)
-  html_elements1 = HtmlParser.parseElements(aURL, aXP)
-  
-  aURL = "http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports"
-  aXP = "//text()[. = 'operating revenue']/parent::*/following-sibling::*"
-  aDESC_INDEX = 0
-  aVALUE_INDEX = 1
-
-  aRESULTS_JSON = "sales_2nd_5_year_history.json"
-  aRESULTS_HTML = "sales_2nd_5_year_history.html"
-  
-  #HtmlParser.parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_JSON, aRESULTS_HTML)
-  html_elements2 = HtmlParser.parseElements(aURL, aXP)
-  
-  elements = html_elements1 + html_elements2
-  HtmlParser.putsElementsText(elements)
-  HtmlParser.writeElementsToTextFile(elements, "./results/textFile.txt" )
-  
+  def doIt (aSYMBOL)
+    aFEATURE = "feature 03"
+    company = myStocks[aSYMBOL]["company"]
+    aTitle = company + " - " + self.class.name
+    myStocks = HtmlParser.myStocks
+    aURL = myStocks[aSYMBOL][aFEATURE]["url"]
+    aXP = myStocks[aSYMBOL][aFEATURE]["xpath"]
+    #aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
+    #aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
+    aResultsPath = "../03_sales_10_year_history/results/sales_10_year_history."
+    #aSHOW_ALL = true
+    
+    html_elements1 = HtmlParser.parseElements(aURL, aXP)
+    
+    aURL = myStocks[aSYMBOL][aFEATURE]["url2"]
+    html_elements2 = HtmlParser.parseElements(aURL, aXP)
+    
+    elements = html_elements1 + html_elements2
+    
+    HtmlParser.putsElementsText(elements, aTitle)
+    HtmlParser.writeElementsToTextFile(elements, aResultsPath + "txt", aTitle)
+  end   
 end

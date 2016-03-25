@@ -5,6 +5,8 @@ class Return_on_capital
   
   def doIt (aSYMBOL)
     aFEATURE = "feature 01"
+    company = myStocks[aSYMBOL]["company"]
+    aTitle = company + " - " + self.class.name
     myStocks = HtmlParser.myStocks
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
     aXP = myStocks[aSYMBOL][aFEATURE]["xpath"]
@@ -12,8 +14,9 @@ class Return_on_capital
     aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
     aResultsPath = "../01_return_on_capital/results/return_on_capital."
     aSHOW_ALL = false
-    aTEXT = "Return on Capital"
+
     
-    HtmlParser.parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aResultsPath, aSHOW_ALL, aTEXT)
+    HtmlParser.parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aResultsPath, aSHOW_ALL, aTitle)
+    
   end
 end
