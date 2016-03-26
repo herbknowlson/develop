@@ -37,7 +37,7 @@ class Sales10YearHistory
   html_elements2 = HtmlParser.parseElements(aURL, aXPath)
   
   elements = html_elements1 + html_elements2
-  HtmlParser.putsElementsText(elements)
-  HtmlParser.writeElementsToTextFile(elements, "./results/textFile.txt" )
+  HtmlParser.putsElements2(elements, "Sales10YearHistory" )
+  HtmlParser.writeElementsToTextFile(elements, "./results/textFile.txt", "Sales10YearHistory" )
   
 end

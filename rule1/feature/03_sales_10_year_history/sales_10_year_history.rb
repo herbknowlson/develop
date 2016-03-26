@@ -45,7 +45,7 @@ class Sales_10_year_history
     
     elements = html_elements1 + html_elements2
     
-    HtmlParser.putsElementsText(elements, aTitle)
+    HtmlParser.putsElements2(elements, aTitle)
     HtmlParser.writeElementsToTextFile(elements, aResultsPath + "txt", aTitle)
   end   
 end

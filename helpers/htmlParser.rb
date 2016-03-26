@@ -9,43 +9,46 @@ include MyStocks
 
 module HtmlParser
   
-  def parseElements(aURL, aXP)
+  def parseElements(aURL, aXPATH)
+    puts aURL.red
+    puts aXPATH.brown
     url = aURL
     nokogiri_object = Nokogiri::HTML(RestClient.get(url))
-    xp = aXP
+    xp = aXPATH
     html_elements = nokogiri_object.xpath(xp) #contains the HTML page elements that match the Xpath
     return html_elements
   end
 
-  def parseHtml(aURL, aXP, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTitle)
-  
-    elements = self.parseElements(aURL, aXP)
-    tempHash = createJson(aVALUE_INDEX, aTitle, elements)
+  def parseHtml(aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTITLE)
+
+    elements = self.parseElements(aURL, aXPATH)
+    putsElements2(elements, aTITLE)
+    tempHash = createJson(aVALUE_INDEX, aTITLE, elements)
     
     if aSHOW_ALL
-      self.showResultsOnTheScreen(elements, aTitle)
+      self.showResultsOnTheScreen(elements, aTITLE)
     end
     
     keys = []
     values = []
-    keys[0] = aTitle
+    keys[0] = aTITLE
     values[0] = elements[aVALUE_INDEX].text
  
     aRESULTS_JSON = aRESULTS_PATH + "json"
     aRESULTS_HTML = aRESULTS_PATH + "html"
     aRESULTS_TEXT = aRESULTS_PATH + "txt"
     writeResultsToHtmlFile(aRESULTS_HTML, keys, values)
-    writeResultsToTextFile(aRESULTS_TEXT, values, aTitle)
+    writeResultsToTextFile(aRESULTS_TEXT, values, aTITLE)
     writeResultsToJson(tempHash, aRESULTS_JSON)
 
     return values
   end
   
-  def createJson(aVALUE_INDEX, aTitle, elements)
+  def createJson(aVALUE_INDEX, aTITLE, elements)
     keys = []
     values = []
    
-    keys[0] = aTitle
+    keys[0] = aTITLE
     values[0] = elements[aVALUE_INDEX].text
   
     tempHash = Hash[keys.zip values]
@@ -88,10 +91,21 @@ module HtmlParser
     end
   end
   
-  def putsElementsText(elements, aTEXT)
-    puts aTEXT
+  def putsElements(elements, aTEXT)
+    puts aTEXT.green
     elements.each do |e|
-      puts e.text #Alias for inner_text
+      #puts e.text #Alias for inner_text
+      puts e
+    end
+  end
+  
+  def putsElements2(elements, aTEXT)
+    #puts aTEXT.green
+    puts elements.size.to_s.green
+    i = 0
+    for e in elements
+      puts i.to_s + " - " + e.text
+      i = i + 1
     end
   end
   
@@ -115,13 +129,4 @@ module HtmlParser
       end
     end # close the file
   end
-
-  def putsElements2(elements)
-    i = 0
-    for e in elements
-      puts i.to_s + " - " + e
-      i = i + 1
-    end
-  end
-  
 end

@@ -1,7 +1,7 @@
 require_relative '../../../helpers/htmlParser'
 include HtmlParser
   
-class Sales10YearHistory
+class Book_value_per_share_10_year_history
   #start_date=0 - 1993
   #start_date=1 - 1994
   #start_date=2 - 1995
@@ -37,7 +37,7 @@ class Sales10YearHistory
   html_elements2 = HtmlParser.parseElements(aURL, aXPath)
   
   elements = html_elements1 + html_elements2
-  HtmlParser.putsElementsText(elements)
-  HtmlParser.writeElementsToTextFile(elements, "./results/textFile.txt" )
+  HtmlParser.putsElements2(elements, "Book_value_per_share_10_year_history")
+  HtmlParser.writeElementsToTextFile(elements, "./results/textFile.txt", "Book_value_per_share_10_year_history" )
   
 end
