@@ -4,6 +4,7 @@ include HtmlParser
 class Company_symbol_and_name
 
   def doIt (aSYMBOL)
+    aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature A00"
     aCOMPANY = myStocks[aSYMBOL]["company"]
     aTITLE = aCOMPANY + " - " + self.class.name

@@ -99,8 +99,8 @@ module HtmlParser
     end
   end
   
-  def putsElements2(elements, aTEXT)
-    #puts aTEXT.green
+  def putsElements2(elements, aTITLE)
+    puts aTITLE.green
     puts elements.size.to_s.green
     i = 0
     for e in elements
