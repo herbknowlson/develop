@@ -12,7 +12,7 @@ class Pe_and_eps
     aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
     aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
     #aRESULTS_PATH = "../08_pe_and_eps/results/pe_and_eps."
-    aRESULTS_PATH = "../../../_results/08_pe_and_eps."
+    aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - 08_pe_and_eps."
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
     
     #html_elements = HtmlParser.parseElements(aURL, aXPATH)

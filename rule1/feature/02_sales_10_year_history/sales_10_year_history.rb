@@ -37,7 +37,7 @@ class Sales_10_year_history
     #aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
     #aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
     #aResultsPath = "../02_sales_10_year_history/results/sales_10_year_history."
-    aResultsPath = "../../../_results/02_sales_10_year_history."
+    aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - 02_sales_10_year_history."
     #aSHOW_ALL = true
     
     html_elements1 = HtmlParser.parseElements(aURL, aXP)
@@ -48,6 +48,6 @@ class Sales_10_year_history
     elements = html_elements1 + html_elements2
     
     HtmlParser.putsElements2(elements, aTITLE)
-    HtmlParser.writeElementsToTextFile(elements, aResultsPath + "txt", aTITLE)
+    HtmlParser.writeElementsToTextFile(elements, aRESULTS_PATH + "txt", aTITLE)
   end   
 end

@@ -14,13 +14,13 @@ class Return_on_capital
     aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
     aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
     #aResultsPath = "../01_return_on_capital/results/return_on_capital."
-    aResultsPath = "../../../_results/01_return_on_capital."
+    aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - 01_return_on_capital."
     aSHOW_ALL = false
 
     #html_elements = HtmlParser.parseElements(aURL, aXPATH)
     #HtmlParser.putsElements2(html_elements, aTITLE)
     
-    HtmlParser.parseHtml(aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aResultsPath, aSHOW_ALL, aTITLE)
+    HtmlParser.parseHtml(aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTITLE)
     
   end
 end
