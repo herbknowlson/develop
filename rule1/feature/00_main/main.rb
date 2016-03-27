@@ -9,9 +9,10 @@ require_relative '../07_current_liabilities_10_year_history/current_liabilities_
 require_relative '../08_pe_and_eps/pe_and_eps'
 require_relative '../09_growth_estimate/growth_estimate'
 require_relative '../10_pe_ratio_ltm/pe_ratio_ltm'
+require_relative '../A00_company_symbol_and_name/company_symbol_and_name'
+require_relative '../A01_daily_quote/daily_quote'
   
 module Main
-  
     roic = Return_on_capital.new
     roic5 = Return_on_capital_5_year_avg.new
     sales = Sales_10_year_history.new
@@ -23,18 +24,20 @@ module Main
     earnings = Pe_and_eps.new
     growth = Growth_estimate.new
     pe_ltm = Pe_ratio_ltm.new
+    symbol = Company_symbol_and_name.new
+    quote = Daily_quote.new
     
-    
-    roic.doIt()
-    roic5.doIt()
-    sales.doIt()
-    eps.doIt()
-    book.doIt()
-    cash.doIt()
-    assets.doIt()
-    liabilities.doIt()
-    earnings.doIt()
-    growth.doIt()
-    pe_ltm.doIt()
-  
+    roic.doIt
+    roic5.doIt
+    sales.doIt
+    eps.doIt
+    book.doIt
+    cash.doIt
+    assets.doIt
+    liabilities.doIt
+    earnings.doIt
+    growth.doIt
+    pe_ltm.doIt
+    symbol.doIt
+    quote.doIt
 end

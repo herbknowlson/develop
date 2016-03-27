@@ -10,7 +10,6 @@ class Eps_10_year_history
     myStocks = HtmlParser.myStocks
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
     aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
-    #aResultsPath = "../03_eps_10_year_history/results/eps_10_year_history."
     aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - 03_eps_10_year_history."
     html_elements1 = HtmlParser.parseElements(aURL, aXPATH)
     aURL = myStocks[aSYMBOL][aFEATURE]["url2"]

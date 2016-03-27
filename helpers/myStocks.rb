@@ -20,11 +20,11 @@ module MyStocks
     my_string =
     '{
       "main":{
-        "#symbol":"APPL",
-        "symbol":"KO",
+        "symbol":"AAPL",
+        "#symbol":"KO",
         "#symbol":"TM"
       },
-      "APPL":{
+      "AAPL":{
         "company":"Apple Inc",
         "ceo":"Tim Cook",
         "feature 01":{
@@ -56,6 +56,67 @@ module MyStocks
           "xpath":"//text()[. = \'operating revenue\']/parent::*/following-sibling::*",
           "aDESC_INDEX":0,
           "aVALUE_INDEX":1
+        },
+        "feature 03":{
+          "desc":"eps_10_year_history",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports",
+          "url2":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports",
+          "xpath":"//text()[. = \'EPS from Total Operations (YTD)\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":1
+        },
+        "feature 04":{
+          "desc":"book_value_per_share_10_year_history",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports",
+          "url2":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports",
+          "xpath":"//text()[. = \'book value per share\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":1
+        },
+        "feature 05":{
+          "desc":"cash_from_total_operating_activities_10_year_history",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports",
+          "url2":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports",
+          "xpath":"//text()[. = \'net cash from total operating activities\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":1
+        },
+        "feature 06":{
+          "desc":"current_assets_10_year_history",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports",
+          "url2":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports",
+          "xpath":"//text()[. = \'total current assets\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":1
+        },
+        "feature 07":{
+          "desc":"current_liabilities_10_year_history",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=13&mode=annual_reports",
+          "url2":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials?btn=start_date&start_date=18&mode=annual_reports",
+          "xpath":"//text()[. = \'total liabilities\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":1
+        },
+        "feature 08":{
+          "desc":"pe_and_eps",
+          "url":"http://www.msn.com/en-us/money/stockdetails/fi-126.1.AAPL.NAS",
+          "xpath":"//p",
+          "aDESC_INDEX":18,
+          "aVALUE_INDEX":19
+        },
+        "feature 09":{
+          "desc":"growth_estimate",
+          "url":"http://finance.yahoo.com/q/ae?s=aapl+analyst+estimates",
+          "xpath":"//text()[. = \'Next 5 Years (per annum)\']/parent::*/following-sibling::*",
+          "aDESC_INDEX":0,
+          "aVALUE_INDEX":0
+        },
+        "feature 10":{
+          "desc":"pe_ratio_ltm",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/AAPL/financials",
+          "xpath":"//td",
+          "aDESC_INDEX":404,
+          "aVALUE_INDEX":405
         },
         "feature A00":{
           "desc":"company_symbol_and_name",
