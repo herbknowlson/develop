@@ -19,7 +19,8 @@ class Pe_ratio_ltm
   aDESC_INDEX = 0
   RESULTS_JSON = "./results/return_on_capital.json"
   RESULTS_HTML = "./results/return_on_capital.html"
-  aRESULTS_PATH = "../09a_pe_ratio_ltm/results/pe_ratio_ltm."
+  #aRESULTS_PATH = "../09a_pe_ratio_ltm/results/pe_ratio_ltm."
+  aRESULTS_PATH = "../../../_results/10_pe_ratio_ltm."
   aSHOW_ALL = true
   
   #HtmlParser.jsonExample()

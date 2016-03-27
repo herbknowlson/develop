@@ -36,7 +36,8 @@ class Sales_10_year_history
     aXP = myStocks[aSYMBOL][aFEATURE]["xpath"]
     #aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
     #aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
-    aResultsPath = "../02_sales_10_year_history/results/sales_10_year_history."
+    #aResultsPath = "../02_sales_10_year_history/results/sales_10_year_history."
+    aResultsPath = "../../../_results/02_sales_10_year_history."
     #aSHOW_ALL = true
     
     html_elements1 = HtmlParser.parseElements(aURL, aXP)

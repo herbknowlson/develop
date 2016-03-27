@@ -11,7 +11,8 @@ class Growth_estimate
     aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
     aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
     aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
-    aRESULTS_PATH = "../09_growth_estimate/results/growth_estimate."
+    #aRESULTS_PATH = "../09_growth_estimate/results/growth_estimate."
+    aRESULTS_PATH = "../../../_results/09_growth_estimate."
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
     
     #html_elements = HtmlParser.parseElements(aURL, aXPATH)

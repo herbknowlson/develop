@@ -37,9 +37,9 @@ module HtmlParser
     aRESULTS_JSON = aRESULTS_PATH + "json"
     aRESULTS_HTML = aRESULTS_PATH + "html"
     aRESULTS_TEXT = aRESULTS_PATH + "txt"
-    writeResultsToHtmlFile(aRESULTS_HTML, keys, values)
+    #writeResultsToHtmlFile(aRESULTS_HTML, keys, values)
     writeResultsToTextFile(aRESULTS_TEXT, values, aTITLE)
-    writeResultsToJson(tempHash, aRESULTS_JSON)
+    #writeResultsToJson(tempHash, aRESULTS_JSON)
 
     return values
   end

@@ -10,7 +10,8 @@ class Current_assets_10_year_history
     aTITLE = company + " - " + self.class.name
     myStocks = HtmlParser.myStocks
     aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
-    aResultsPath = "../06_current_assets_10_year_history/results/current_assets_10_year_history."
+    #aResultsPath = "../06_current_assets_10_year_history/results/current_assets_10_year_history."
+    aResultsPath = "../../../_results/06_current_assets_10_year_history."
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
     html_elements1 = HtmlParser.parseElements(aURL, aXPATH)
     aURL = myStocks[aSYMBOL][aFEATURE]["url2"]

@@ -9,7 +9,8 @@ class Cash_from_total_operating_activities_10_year_history
     aTITLE = company + " - " + self.class.name
     myStocks = HtmlParser.myStocks
     aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
-    aResultsPath = "../05_cash_from_total_operating_activities_10_year_history/results/cash_from_total_operating_activities_10_year_history."
+    #aResultsPath = "../05_cash_from_total_operating_activities_10_year_history/results/cash_from_total_operating_activities_10_year_history."
+    aResultsPath = "../../../_results/05_cash_from_total_operating_activities_10_year_history."
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
     html_elements1 = HtmlParser.parseElements(aURL, aXPATH)
     aURL = myStocks[aSYMBOL][aFEATURE]["url2"]
