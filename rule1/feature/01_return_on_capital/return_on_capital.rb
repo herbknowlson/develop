@@ -13,7 +13,8 @@ class Return_on_capital
     aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
     aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
     aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
-    aResultsPath = "../01_return_on_capital/results/return_on_capital."
+    #aResultsPath = "../01_return_on_capital/results/return_on_capital."
+    aResultsPath = "../../_results/01_return_on_capital."
     aSHOW_ALL = false
 
     #html_elements = HtmlParser.parseElements(aURL, aXPATH)
