@@ -2,7 +2,7 @@ require_relative '../../../helpers/htmlParser'
 include HtmlParser
   
 class Pe_and_eps
-  def doIt (aSYMBOL)
+  def doIt
     myStocks = HtmlParser.myStocks
     aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature 08"
@@ -14,12 +14,9 @@ class Pe_and_eps
     #aRESULTS_PATH = "../08_pe_and_eps/results/pe_and_eps."
     aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - 08_pe_and_eps."
     aURL = myStocks[aSYMBOL][aFEATURE]["url"]
-    
     #html_elements = HtmlParser.parseElements(aURL, aXPATH)
     #HtmlParser.putsElements2(html_elements, aTITLE)
-    
     aSHOW_ALL = false
     parseHtml(aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTITLE)
-  
   end 
 end

@@ -2,7 +2,7 @@ require_relative '../../../helpers/htmlParser'
 include HtmlParser
   
 class Eps_10_year_history
-  def doIt (aSYMBOL)
+  def doIt
     aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature 03"
     company = myStocks[aSYMBOL]["company"]

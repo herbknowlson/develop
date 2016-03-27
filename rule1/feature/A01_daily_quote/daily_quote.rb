@@ -3,7 +3,8 @@ include HtmlParser
   
 class Daily_quote
 
-  def doIt (aSYMBOL)
+  def doIt ()
+    aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature A01"
     aCOMPANY = myStocks[aSYMBOL]["company"]
     aTITLE = aCOMPANY + " - " + self.class.name
@@ -12,8 +13,9 @@ class Daily_quote
     aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
     aDESC_INDEX = 0
     aVALUE_INDEX = 0
-    aRESULTS_PATH = "../A01_daily_quote/results/daily_quote."
-    aSHOW_ALL = true
+    aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - A01_daily_quote."
+    
+    aSHOW_ALL = false
     
     #html_elements = HtmlParser.parseElements(aURL, aXPATH)
     #HtmlParser.putsElements2(html_elements, aTITLE)

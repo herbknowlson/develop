@@ -26,7 +26,7 @@ class Sales_10_year_history
   #start_date=21 - 2014
   #start_date=22 - 2015
   
-  def doIt (aSYMBOL)
+  def doIt
     aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature 02"
     company = myStocks[aSYMBOL]["company"]

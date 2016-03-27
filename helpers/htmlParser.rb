@@ -22,10 +22,11 @@ module HtmlParser
   def parseHtml(aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTITLE)
 
     elements = self.parseElements(aURL, aXPATH)
-    putsElements2(elements, aTITLE)
+    #putsElements2(elements, aTITLE)
     tempHash = createJson(aVALUE_INDEX, aTITLE, elements)
     
     if aSHOW_ALL
+      putsElements2(elements, aTITLE)
       self.showResultsOnTheScreen(elements, aTITLE)
     end
     

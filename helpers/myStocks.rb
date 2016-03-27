@@ -173,6 +173,13 @@ module MyStocks
           "aDESC_INDEX":0,
           "aVALUE_INDEX":0
         },
+        "feature 10":{
+          "desc":"pe_ratio_ltm",
+          "url":"http://www.advfn.com/stock-market/NASDAQ/KO/financials",
+          "xpath":"//td",
+          "aDESC_INDEX":404,
+          "aVALUE_INDEX":405
+        },
         "feature A00":{
           "desc":"company_symbol_and_name",
           "url":"http://www.msn.com/en-us/money/stockdetails/fi-126.1.KO.NAS",

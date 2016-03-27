@@ -3,7 +3,7 @@ include HtmlParser
   
 class Return_on_capital
   
-  def doIt (aSYMBOL)
+  def doIt
     aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature 01"
     company = myStocks[aSYMBOL]["company"]

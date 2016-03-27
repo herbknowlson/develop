@@ -3,7 +3,7 @@ include HtmlParser
   
 class Return_on_capital_5_year_avg
 
-  def doIt (aSYMBOL)
+  def doIt
     aSYMBOL = myStocks["main"]["symbol"]
     aFEATURE = "feature 01a"
     company = myStocks[aSYMBOL]["company"]
