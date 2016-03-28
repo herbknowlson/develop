@@ -27,17 +27,20 @@ module Main
     symbol = Company_symbol_and_name.new
     quote = Daily_quote.new
     
+    roic.navigation
+    roic.testIt
     roic.doIt
-    roic5.doIt
-    sales.doIt
-    eps.doIt
-    book.doIt
-    cash.doIt
-    assets.doIt
-    liabilities.doIt
-    earnings.doIt
-    growth.doIt
-    pe_ltm.doIt
-    symbol.doIt
-    quote.doIt
+    
+    #roic5.doIt
+    #sales.doIt
+    #eps.doIt
+    #book.doIt
+    #cash.doIt
+    #assets.doIt
+    #liabilities.doIt
+    #earnings.doIt
+    #growth.doIt
+    #pe_ltm.doIt
+    #symbol.doIt
+    #quote.doIt
 end

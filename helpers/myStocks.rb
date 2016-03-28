@@ -31,12 +31,12 @@ module MyStocks
           "desc":"return_on_capital",
           "url":"http://www.msn.com/en-us/money/stockdetails/analysis/fi-126.1.AAPL.NAS",
           "navigation":{
-            "step_01":"When I enter the symbol",
-            "step_02":"And I click the symbol",
-            "step_03":"And I click the ANALYSIS tab",
-            "step_04":"And I click the GROWTH tab",
-            "step_05":"And I click the MANAGEMENT EFFECTIVENESS tab",
-            "step_06":"And I see Return on Capital % (for ex: 29.64)"
+            "When I enter the symbol":"",
+            "And I click the symbol":"",
+            "And I click the ANALYSIS tab":"",
+            "And I click the GROWTH tab":"",
+            "And I click the MANAGEMENT EFFECTIVENESS tab":"",
+            "And I see Return on Capital % (for ex: 29.64)":""
           },
           "xpath":"//li/span/p",
           "aDESC_INDEX":120,
@@ -45,6 +45,14 @@ module MyStocks
         "feature 01a":{
           "desc":"return_on_capital_5_year_avg",
           "url":"http://www.msn.com/en-us/money/stockdetails/analysis/fi-126.1.AAPL.NAS",
+          "navigation":{
+            "When I enter the symbol":"",
+            "And I click the symbol":"",
+            "And I click the ANALYSIS tab":"",
+            "And I click the GROWTH tab":"",
+            "And I click the MANAGEMENT EFFECTIVENESS tab":"",
+            "And I see (5-Year Average)for ex: (33.30)":""
+          },
           "xpath":"//li/span/p",
           "aDESC_INDEX":121,
           "aVALUE_INDEX":123

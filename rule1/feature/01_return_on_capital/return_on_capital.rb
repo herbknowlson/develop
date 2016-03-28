@@ -3,24 +3,29 @@ include HtmlParser
   
 class Return_on_capital
   
-  def doIt
-    aSYMBOL = myStocks["main"]["symbol"]
-    aFEATURE = "feature 01"
-    company = myStocks[aSYMBOL]["company"]
-    aTITLE = company + " - " + self.class.name
-    myStocks = HtmlParser.myStocks
-    aURL = myStocks[aSYMBOL][aFEATURE]["url"]
-    aXPATH = myStocks[aSYMBOL][aFEATURE]["xpath"]
-    aDESC_INDEX = myStocks[aSYMBOL][aFEATURE]["aDESC_INDEX"].to_i
-    aVALUE_INDEX = myStocks[aSYMBOL][aFEATURE]["aVALUE_INDEX"].to_i
-    #aResultsPath = "../01_return_on_capital/results/return_on_capital."
-    aRESULTS_PATH = "../../../_results/" + aSYMBOL + " - 01_return_on_capital."
-    aSHOW_ALL = false
+  SYMBOL = myStocks["main"]["symbol"]
+  FEATURE = "feature 01"
+  company = myStocks[SYMBOL]["company"]
+  TITLE = company + " - " + self.class.name
+  myStocks = HtmlParser.myStocks
+  URL = myStocks[SYMBOL][FEATURE]["url"]
+  XPATH = myStocks[SYMBOL][FEATURE]["xpath"]
+  DESC_INDEX = myStocks[SYMBOL][FEATURE]["aDESC_INDEX"].to_i
+  VALUE_INDEX = myStocks[SYMBOL][FEATURE]["aVALUE_INDEX"].to_i
+  RESULTS_PATH = "../../../_results/" + SYMBOL + " - 01_return_on_capital."
+  SHOW_ALL = false
+  
+  def navigation
+    navigation = myStocks[SYMBOL][FEATURE]["navigation"]
+    HtmlParser.putsNavigation(navigation, URL, XPATH, DESC_INDEX, VALUE_INDEX, RESULTS_PATH, SHOW_ALL, TITLE)
+  end
 
-    #html_elements = HtmlParser.parseElements(aURL, aXPATH)
-    #HtmlParser.putsElements2(html_elements, aTITLE)
-    
-    HtmlParser.parseHtml(aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTITLE)
-    
+  def testIt
+    html_elements = HtmlParser.parseElements(URL, XPATH)
+    HtmlParser.putsElements2(html_elements, TITLE)
+  end
+  
+  def doIt
+    HtmlParser.parseHtml(URL, XPATH, DESC_INDEX, VALUE_INDEX, RESULTS_PATH, SHOW_ALL, TITLE)
   end
 end

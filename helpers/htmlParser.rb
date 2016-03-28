@@ -8,6 +8,16 @@ require_relative 'myStocks'
 include MyStocks
 
 module HtmlParser
+
+  def putsNavigation(elements, aURL, aXPATH, aDESC_INDEX, aVALUE_INDEX, aRESULTS_PATH, aSHOW_ALL, aTITLE)
+    puts aTITLE.green
+    puts aURL.red
+    puts aXPATH.brown
+    elements.each do |e|
+      #puts e.text #Alias for inner_text
+      puts e
+    end
+  end
   
   def parseElements(aURL, aXPATH)
     puts aURL.red
